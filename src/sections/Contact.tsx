@@ -15,7 +15,7 @@ export default function Contact() {
         const json = JSON.stringify(object);
 
         try {
-            const res = await fetch("https://api.web3forms.com/submit", {
+            const res = await fetch("https://formsubmit.co/ajax/guptaprayag16@gmail.com", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -76,12 +76,10 @@ export default function Contact() {
                         ) : (
                             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
 
-                                {/* IMPORTANT: Web3Forms Access Key */}
-                                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-                                {/* Optional: Add a subject line */}
-                                <input type="hidden" name="subject" value="New Submission from Portfolio Website" />
+                                {/* Optional: Disable FormSubmit Captcha */}
+                                <input type="hidden" name="_captcha" value="false" />
                                 {/* Optional: Honeypot to prevent spam */}
-                                <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+                                <input type="text" name="_honey" className="hidden" style={{ display: 'none' }} />
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="flex flex-col gap-2">
@@ -153,7 +151,7 @@ export default function Contact() {
 
                 <div className="mt-12 text-center text-text-tertiary text-sm max-w-lg mx-auto">
                     <p>
-                        Note: This form uses <a href="https://web3forms.com/" target="_blank" rel="noreferrer" className="text-primary-500 hover:underline">Web3Forms</a> to securely transmit submissions directly to my email without requiring a backend database.
+                        Note: This form uses <a href="https://formsubmit.co/" target="_blank" rel="noreferrer" className="text-primary-500 hover:underline">FormSubmit</a> to route messages directly to my email.
                     </p>
                 </div>
 
