@@ -5,7 +5,7 @@ A premium, highly-interactive portfolio website designed to showcase projects, s
 Built with a focus on modern web aesthetics ("AI Dark Mode"), smooth micro-interactions, and scalable architecture.
 
 ## 🔗 Live URL
-[Link to Live Site]((Insert Netlify URL Here))
+[Link to Live Site]((https://prayaggupta.netlify.app/))
 
 ---
 
@@ -76,6 +76,6 @@ This project is built using modern front-end tooling to ensure lightning-fast pe
 
 ## 🧑‍💻 Author
 **Prayag Gupta**  
-*Aspiring AI Engineer focused on backend optimization and intelligent automation.*
+* AI Engineer focused on backend optimization and intelligent automation.*
 - [LinkedIn](https://www.linkedin.com/in/prayag-gupta-3920b022a)
 - [GitHub](https://github.com/prayagx)
