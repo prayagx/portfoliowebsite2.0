@@ -1,4 +1,4 @@
-import { ArrowUpRight, Github, Code2, Cpu, LineChart } from 'lucide-react';
+import { ArrowUpRight, Code2, Cpu, LineChart } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';
 
 const projects = [

@@ -1,4 +1,4 @@
-import { BrainCircuit, Database, Code, Server, Cpu } from 'lucide-react';
+import { BrainCircuit, Database, Code, Server } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';
 
 const skillCategories = [
