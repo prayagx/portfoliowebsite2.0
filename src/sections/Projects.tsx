@@ -1,4 +1,5 @@
 import { ArrowUpRight, Github, Code2, Cpu, LineChart } from 'lucide-react';
+import { FadeIn } from '../components/FadeIn';
 
 const projects = [
     {
@@ -38,65 +39,67 @@ export default function Projects() {
         <section id="projects" className="py-24 px-6 relative">
             <div className="max-w-6xl mx-auto">
 
-                <div className="mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                        Recent <span className="text-gradient">Case Studies.</span>
-                    </h2>
-                    <p className="text-text-secondary max-w-2xl text-lg">
-                        A curated selection of projects demonstrating my ability to build highly functional, polished systems using AI workflows and scalable technologies.
-                    </p>
-                </div>
+                <FadeIn>
+                    <div className="mb-16">
+                        <h2 className="text-3xl md:text-5xl font-bold mb-4">
+                            Recent <span className="text-gradient">Case Studies.</span>
+                        </h2>
+                        <p className="text-text-secondary max-w-2xl text-lg">
+                            A curated selection of projects demonstrating my ability to build highly functional, polished systems using AI workflows and scalable technologies.
+                        </p>
+                    </div>
+                </FadeIn>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
                     {projects.map((project, idx) => (
-                        <div
-                            key={idx}
-                            className="glass-card flex flex-col group relative overflow-hidden animate-fade-in-up hover:border-primary-500/30 transition-all duration-300"
-                            style={{ animationDelay: `${0.1 * idx}s` }}
-                        >
+                        <FadeIn key={idx} delay={0.1 * idx}>
+                            <div className="glass-card flex flex-col group relative overflow-hidden hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-primary-500/10 hover:border-primary-500/40 transition-all duration-300 h-full">
 
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-primary-500/5 rounded-bl-[100px] -z-10 group-hover:bg-primary-500/10 transition-colors"></div>
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-primary-500/5 rounded-bl-[100px] -z-10 group-hover:bg-primary-500/10 group-hover:scale-110 transition-all duration-500"></div>
 
-                            <div className="p-8 flex flex-col h-full z-10">
-                                {project.icon}
+                                <div className="p-8 flex flex-col h-full z-10">
+                                    <div className="group-hover:drop-shadow-[0_0_8px_rgba(20,184,166,0.5)] transition-all duration-300">
+                                        {project.icon}
+                                    </div>
 
-                                <span className="text-xs font-mono text-accent-500 uppercase tracking-wider mb-2">{project.category}</span>
-                                <h3 className="text-2xl font-bold mb-4 text-text-primary group-hover:text-primary-500 transition-colors">{project.title}</h3>
+                                    <span className="text-xs font-mono text-accent-500 uppercase tracking-wider mb-2">{project.category}</span>
+                                    <h3 className="text-2xl font-bold mb-4 text-text-primary group-hover:text-primary-500 transition-colors">{project.title}</h3>
 
-                                <p className="text-text-secondary mb-6 leading-relaxed flex-grow">
-                                    {project.description}
-                                </p>
-
-                                <div className="bg-surfaceBorder/30 rounded-xl p-4 mb-6 border border-surfaceBorder/50">
-                                    <p className="text-sm text-text-primary mb-2">
-                                        <span className="font-semibold text-primary-500">Tech Stack:</span> {project.architecture}
+                                    <p className="text-text-secondary mb-6 leading-relaxed flex-grow">
+                                        {project.description}
                                     </p>
-                                    <p className="text-sm text-text-secondary">
-                                        <span className="font-semibold text-accent-500">AI Narrative:</span> {project.aiHighlight}
-                                    </p>
+
+                                    <div className="bg-surfaceBorder/30 rounded-xl p-4 mb-6 border border-surfaceBorder/50 group-hover:border-primary-500/20 transition-colors">
+                                        <p className="text-sm text-text-primary mb-2">
+                                            <span className="font-semibold text-primary-500">Tech Stack:</span> {project.architecture}
+                                        </p>
+                                        <p className="text-sm text-text-secondary">
+                                            <span className="font-semibold text-accent-500">AI Narrative:</span> {project.aiHighlight}
+                                        </p>
+                                    </div>
+
+                                    <div className="flex flex-wrap gap-2 mb-8">
+                                        {project.tags.map((tag, tIdx) => (
+                                            <span key={tIdx} className="px-3 py-1 bg-surfaceBorder/50 text-text-tertiary rounded-md text-xs font-medium border border-surfaceBorder group-hover:border-primary-500/20 group-hover:text-text-secondary transition-colors">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    <a
+                                        href={project.link}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="mt-auto inline-flex items-center gap-2 text-sm font-bold text-text-primary group-hover:text-primary-500 transition-colors"
+                                    >
+                                        View live project / Code
+                                        <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                    </a>
+
                                 </div>
-
-                                <div className="flex flex-wrap gap-2 mb-8">
-                                    {project.tags.map((tag, tIdx) => (
-                                        <span key={tIdx} className="px-3 py-1 bg-surfaceBorder/50 text-text-tertiary rounded-md text-xs font-medium border border-surfaceBorder">
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-
-                                <a
-                                    href={project.link}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="mt-auto inline-flex items-center gap-2 text-sm font-bold text-text-primary group-hover:text-primary-500 transition-colors"
-                                >
-                                    View live project / Code
-                                    <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                </a>
-
                             </div>
-                        </div>
+                        </FadeIn>
                     ))}
 
                 </div>

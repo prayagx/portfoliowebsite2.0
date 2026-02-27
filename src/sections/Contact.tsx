@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { FadeIn } from '../components/FadeIn';
 
 export default function Contact() {
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -38,112 +39,117 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="py-24 px-6">
+        <section id="contact" className="py-24 px-6 relative">
+            <div className="absolute inset-0 bg-gradient-to-t from-primary-500/5 to-transparent -z-10 pointer-events-none"></div>
             <div className="max-w-3xl mx-auto">
 
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                        Initialize <span className="text-gradient">Connection.</span>
-                    </h2>
-                    <p className="text-text-secondary text-lg">
-                        Have a project in mind, a question about an AI implementation, or just want to connect? Send a prompt my way.
-                    </p>
-                </div>
+                <FadeIn>
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-bold mb-4">
+                            Initialize <span className="text-gradient">Connection.</span>
+                        </h2>
+                        <p className="text-text-secondary text-lg">
+                            Have a project in mind, a question about an AI implementation, or just want to connect? Send a prompt my way.
+                        </p>
+                    </div>
+                </FadeIn>
 
-                <div className="glass-card p-8 md:p-10 animate-fade-in-up">
+                <FadeIn delay={0.2}>
+                    <div className="glass-card p-8 md:p-10 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-primary-500/5 hover:border-primary-500/30 transition-all duration-500">
 
-                    {status === "success" ? (
-                        <div className="flex flex-col items-center justify-center py-12 text-center animate-fade-in-up">
-                            <div className="w-16 h-16 rounded-full bg-primary-500/10 flex items-center justify-center mb-6">
-                                <CheckCircle className="text-primary-500" size={32} />
+                        {status === "success" ? (
+                            <div className="flex flex-col items-center justify-center py-12 text-center">
+                                <div className="w-16 h-16 rounded-full bg-primary-500/10 flex items-center justify-center mb-6">
+                                    <CheckCircle className="text-primary-500 drop-shadow-[0_0_8px_rgba(20,184,166,0.5)]" size={32} />
+                                </div>
+                                <h3 className="text-2xl font-bold text-text-primary mb-2">Message Sent</h3>
+                                <p className="text-text-secondary">
+                                    Thank you for reaching out. I'll process your input and get back to you shortly.
+                                </p>
+                                <button
+                                    onClick={() => setStatus("idle")}
+                                    className="mt-8 px-6 py-2 rounded-full border border-surfaceBorder hover:bg-surfaceBorder/50 hover:text-primary-500 transition-colors"
+                                >
+                                    Send Another
+                                </button>
                             </div>
-                            <h3 className="text-2xl font-bold text-text-primary mb-2">Message Sent</h3>
-                            <p className="text-text-secondary">
-                                Thank you for reaching out. I'll process your input and get back to you shortly.
-                            </p>
-                            <button
-                                onClick={() => setStatus("idle")}
-                                className="mt-8 px-6 py-2 rounded-full border border-surfaceBorder hover:bg-surfaceBorder/50 transition-colors"
-                            >
-                                Send Another
-                            </button>
-                        </div>
-                    ) : (
-                        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                        ) : (
+                            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
 
-                            {/* IMPORTANT: Web3Forms Access Key */}
-                            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-                            {/* Optional: Add a subject line */}
-                            <input type="hidden" name="subject" value="New Submission from Portfolio Website" />
-                            {/* Optional: Honeypot to prevent spam */}
-                            <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+                                {/* IMPORTANT: Web3Forms Access Key */}
+                                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+                                {/* Optional: Add a subject line */}
+                                <input type="hidden" name="subject" value="New Submission from Portfolio Website" />
+                                {/* Optional: Honeypot to prevent spam */}
+                                <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="flex flex-col gap-2">
-                                    <label htmlFor="name" className="text-sm font-medium text-text-secondary">Name</label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        required
-                                        className="bg-background/50 border border-surfaceBorder rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors"
-                                        placeholder="John Doe"
-                                    />
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="flex flex-col gap-2">
+                                        <label htmlFor="name" className="text-sm font-medium text-text-secondary">Name</label>
+                                        <input
+                                            type="text"
+                                            id="name"
+                                            name="name"
+                                            required
+                                            className="bg-background/50 border border-surfaceBorder rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors"
+                                            placeholder="John Doe"
+                                        />
+                                    </div>
+
+                                    <div className="flex flex-col gap-2">
+                                        <label htmlFor="email" className="text-sm font-medium text-text-secondary">Email</label>
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            name="email"
+                                            required
+                                            className="bg-background/50 border border-surfaceBorder rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors"
+                                            placeholder="john@example.com"
+                                        />
+                                    </div>
                                 </div>
 
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="email" className="text-sm font-medium text-text-secondary">Email</label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
+                                    <label htmlFor="message" className="text-sm font-medium text-text-secondary">Message Payload</label>
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        rows={5}
                                         required
-                                        className="bg-background/50 border border-surfaceBorder rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors"
-                                        placeholder="john@example.com"
-                                    />
+                                        className="bg-background/50 border border-surfaceBorder rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors resize-none"
+                                        placeholder="How can we collaborate on..."
+                                    ></textarea>
                                 </div>
-                            </div>
 
-                            <div className="flex flex-col gap-2">
-                                <label htmlFor="message" className="text-sm font-medium text-text-secondary">Message Payload</label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    rows={5}
-                                    required
-                                    className="bg-background/50 border border-surfaceBorder rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors resize-none"
-                                    placeholder="How can we collaborate on..."
-                                ></textarea>
-                            </div>
-
-                            {status === "error" && (
-                                <div className="flex items-center gap-2 text-red-400 bg-red-400/10 p-3 rounded-lg border border-red-400/20">
-                                    <AlertCircle size={18} />
-                                    <span className="text-sm">{errorMessage}</span>
-                                </div>
-                            )}
-
-                            <button
-                                type="submit"
-                                disabled={status === "loading"}
-                                className="mt-2 group relative px-6 py-3 rounded-lg bg-text-primary text-background font-medium hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
-                            >
-                                {status === "loading" ? (
-                                    <span className="flex items-center gap-2">
-                                        <span className="w-5 h-5 border-2 border-background border-t-transparent rounded-full animate-spin"></span>
-                                        Transmitting...
-                                    </span>
-                                ) : (
-                                    <>
-                                        Send Payload
-                                        <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                    </>
+                                {status === "error" && (
+                                    <div className="flex items-center gap-2 text-red-400 bg-red-400/10 p-3 rounded-lg border border-red-400/20">
+                                        <AlertCircle size={18} />
+                                        <span className="text-sm">{errorMessage}</span>
+                                    </div>
                                 )}
-                            </button>
-                        </form>
-                    )}
 
-                </div>
+                                <button
+                                    type="submit"
+                                    disabled={status === "loading"}
+                                    className="mt-2 group relative px-6 py-3 rounded-lg bg-text-primary text-background font-medium hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+                                >
+                                    {status === "loading" ? (
+                                        <span className="flex items-center gap-2">
+                                            <span className="w-5 h-5 border-2 border-background border-t-transparent rounded-full animate-spin"></span>
+                                            Transmitting...
+                                        </span>
+                                    ) : (
+                                        <>
+                                            Send Payload
+                                            <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                        </>
+                                    )}
+                                </button>
+                            </form>
+                        )}
+
+                    </div>
+                </FadeIn>
 
                 <div className="mt-12 text-center text-text-tertiary text-sm max-w-lg mx-auto">
                     <p>

@@ -5,21 +5,26 @@ import About from './sections/About';
 import Skills from './sections/Skills';
 import Projects from './sections/Projects';
 import Contact from './sections/Contact';
+import { MouseGlow } from './components/MouseGlow';
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-text-primary selection:bg-primary-500/30 selection:text-primary-500 font-sans">
-      <Header />
+    <div className="relative min-h-screen bg-background text-text-primary selection:bg-primary-500/30 selection:text-primary-500 font-sans overflow-hidden">
+      <MouseGlow />
 
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
+      <div className="relative z-10">
+        <Header />
 
-      <Footer />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+        </main>
+
+        <Footer />
+      </div>
     </div>
   );
 }
