@@ -11,7 +11,6 @@ export default function Header() {
     const [activeSection, setActiveSection] = useState('home');
 
     return (
-    return (
         <header className="fixed top-6 left-0 right-0 z-50 flex justify-center px-2 sm:px-4 animate-fade-in-up">
             <nav className="glass-card px-1 py-1 sm:px-2 sm:py-2 flex items-center gap-0.5 sm:gap-1 rounded-full border-white/10 dark:border-white/5 mx-auto max-w-full overflow-x-auto scrollbar-hide">
 
