@@ -11,8 +11,9 @@ export default function Header() {
     const [activeSection, setActiveSection] = useState('home');
 
     return (
-        <header className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 animate-fade-in-up">
-            <nav className="glass-card px-2 py-2 flex items-center gap-1 rounded-full border-white/10 dark:border-white/5">
+    return (
+        <header className="fixed top-6 left-0 right-0 z-50 flex justify-center px-2 sm:px-4 animate-fade-in-up">
+            <nav className="glass-card px-1 py-1 sm:px-2 sm:py-2 flex items-center gap-0.5 sm:gap-1 rounded-full border-white/10 dark:border-white/5 mx-auto max-w-full overflow-x-auto scrollbar-hide">
 
                 {navItems.map((item) => (
                     <a
@@ -20,7 +21,7 @@ export default function Header() {
                         href={item.href}
                         onClick={() => setActiveSection(item.name.toLowerCase())}
                         className={`
-              relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300
+              relative px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs md:text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap
               ${activeSection === item.name.toLowerCase()
                                 ? 'text-text-primary bg-surfaceBorder'
                                 : 'text-text-secondary hover:text-text-primary hover:bg-surfaceBorder/50'}
@@ -30,11 +31,11 @@ export default function Header() {
                     </a>
                 ))}
 
-                <div className="w-px h-6 bg-surfaceBorder mx-2"></div>
+                <div className="w-px h-4 sm:h-6 bg-surfaceBorder mx-1 sm:mx-2 flex-shrink-0"></div>
 
                 <a
                     href="#contact"
-                    className="px-4 py-2 text-sm font-medium rounded-full bg-primary-500/10 text-primary-500 hover:bg-primary-500/20 transition-all duration-300"
+                    className="px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs md:text-sm font-medium rounded-full bg-primary-500/10 text-primary-500 hover:bg-primary-500/20 transition-all duration-300 whitespace-nowrap flex-shrink-0"
                 >
                     Contact
                 </a>

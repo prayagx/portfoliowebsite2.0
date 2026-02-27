@@ -56,16 +56,16 @@ export default function Hero() {
                 </FadeIn>
 
                 <FadeIn delay={0.4}>
-                    <div className="flex flex-col sm:flex-row gap-4">
-                        <MagneticButton>
-                            <a href="#projects" className="group relative px-6 py-3 rounded-lg bg-text-primary text-background font-medium hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 shadow-xl shadow-white/5">
+                    <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-6">
+                        <MagneticButton className="w-full sm:w-auto">
+                            <a href="#projects" className="group relative w-full sm:w-auto px-6 py-3 rounded-lg bg-text-primary text-background font-medium hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 shadow-xl shadow-white/5">
                                 View Projects
                                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                             </a>
                         </MagneticButton>
 
-                        <MagneticButton>
-                            <a href="/Prayag_Gupta_Resume.pdf" download className="group px-6 py-3 rounded-lg border border-surfaceBorder bg-surface hover:border-primary-500/50 hover:bg-surfaceBorder/30 text-text-primary font-medium transition-colors flex items-center justify-center gap-2">
+                        <MagneticButton className="w-full sm:w-auto">
+                            <a href="/Prayag_Gupta_Resume.pdf" download className="group w-full sm:w-auto px-6 py-3 rounded-lg border border-surfaceBorder bg-surface hover:border-primary-500/50 hover:bg-surfaceBorder/30 text-text-primary font-medium transition-colors flex items-center justify-center gap-2">
                                 <Download size={18} className="text-text-secondary group-hover:text-primary-500 transition-colors" />
                                 Download CV
                             </a>
