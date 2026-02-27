@@ -12,7 +12,7 @@ export default function Footer() {
                         <Github size={20} />
                         <span className="sr-only">GitHub</span>
                     </a>
-                    <a href="https://linkedin.com/in/prayag-gupta" target="_blank" rel="noreferrer" className="p-3 bg-surfaceBorder/50 rounded-full text-text-secondary hover:accent-500 hover:bg-accent-500/10 transition-colors">
+                    <a href="https://www.linkedin.com/in/prayag-gupta-3920b022a" target="_blank" rel="noreferrer" className="p-3 bg-surfaceBorder/50 rounded-full text-text-secondary hover:accent-500 hover:bg-accent-500/10 transition-colors">
                         <Linkedin size={20} />
                         <span className="sr-only">LinkedIn</span>
                     </a>
