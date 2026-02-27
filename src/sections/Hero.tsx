@@ -61,7 +61,7 @@ export default function Hero() {
                             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </a>
 
-                        <a href="/Prayag_Gupta_Resume_AWS_DB_AI.pdf" download className="group px-6 py-3 rounded-lg border border-surfaceBorder bg-surface hover:border-primary-500/50 hover:bg-surfaceBorder/30 text-text-primary font-medium transition-colors flex items-center justify-center gap-2">
+                        <a href="/Prayag_Gupta_Resume.pdf" download className="group px-6 py-3 rounded-lg border border-surfaceBorder bg-surface hover:border-primary-500/50 hover:bg-surfaceBorder/30 text-text-primary font-medium transition-colors flex items-center justify-center gap-2">
                             <Download size={18} className="text-text-secondary group-hover:text-primary-500 transition-colors" />
                             Download CV
                         </a>
