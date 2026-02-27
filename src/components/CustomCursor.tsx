@@ -43,8 +43,8 @@ export const CustomCursor = () => {
         <motion.div
             className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center"
             animate={{
-                x: mousePosition.x - (isHovering ? 24 : 12), // Adjust for center based on size
-                y: mousePosition.y - (isHovering ? 24 : 12),
+                x: mousePosition.x - (isHovering ? 24 : 16),
+                y: mousePosition.y - (isHovering ? 24 : 16),
             }}
             transition={{
                 type: 'spring',
@@ -54,18 +54,30 @@ export const CustomCursor = () => {
             }}
         >
             <motion.div
-                className="rounded-full bg-primary-500 shadow-[0_0_15px_rgba(20,184,166,0.8)]"
+                className={`rounded-full shadow-[0_0_20px_rgba(20,184,166,0.9)] ${isHovering
+                        ? 'bg-transparent border-2 border-primary-500 shadow-[0_0_25px_rgba(20,184,166,1)] flex items-center justify-center'
+                        : 'bg-primary-500'
+                    }`}
                 animate={{
-                    width: isHovering ? 48 : 24,
-                    height: isHovering ? 48 : 24,
-                    opacity: isHovering ? 0.5 : 0.9,
+                    width: isHovering ? 48 : 32,
+                    height: isHovering ? 48 : 32,
+                    opacity: 1, // Never transparent
                 }}
                 transition={{
                     type: 'spring',
                     stiffness: 300,
                     damping: 20,
                 }}
-            />
+            >
+                {/* Inner dot when hovering */}
+                {isHovering && (
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="w-2 h-2 rounded-full bg-primary-500"
+                    />
+                )}
+            </motion.div>
         </motion.div>
     );
 };
