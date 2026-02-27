@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Terminal, ArrowRight, Download } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';
+import { MagneticButton } from '../components/MagneticButton';
 
 const TYPE_SPEED = 50;
 
@@ -56,15 +57,19 @@ export default function Hero() {
 
                 <FadeIn delay={0.4}>
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <a href="#projects" className="group relative px-6 py-3 rounded-lg bg-text-primary text-background font-medium hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 shadow-xl shadow-white/5">
-                            View Projects
-                            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                        </a>
+                        <MagneticButton>
+                            <a href="#projects" className="group relative px-6 py-3 rounded-lg bg-text-primary text-background font-medium hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 shadow-xl shadow-white/5">
+                                View Projects
+                                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                            </a>
+                        </MagneticButton>
 
-                        <a href="/Prayag_Gupta_Resume.pdf" download className="group px-6 py-3 rounded-lg border border-surfaceBorder bg-surface hover:border-primary-500/50 hover:bg-surfaceBorder/30 text-text-primary font-medium transition-colors flex items-center justify-center gap-2">
-                            <Download size={18} className="text-text-secondary group-hover:text-primary-500 transition-colors" />
-                            Download CV
-                        </a>
+                        <MagneticButton>
+                            <a href="/Prayag_Gupta_Resume.pdf" download className="group px-6 py-3 rounded-lg border border-surfaceBorder bg-surface hover:border-primary-500/50 hover:bg-surfaceBorder/30 text-text-primary font-medium transition-colors flex items-center justify-center gap-2">
+                                <Download size={18} className="text-text-secondary group-hover:text-primary-500 transition-colors" />
+                                Download CV
+                            </a>
+                        </MagneticButton>
                     </div>
                 </FadeIn>
 
