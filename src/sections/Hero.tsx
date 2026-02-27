@@ -7,7 +7,7 @@ const TYPE_SPEED = 50;
 
 export default function Hero() {
     const [typedText, setTypedText] = useState('');
-    const fullText = "Aspiring AI Engineer focused on backend optimization and AI-driven automation. I build scalable systems and intelligent applications.";
+    const fullText = "AI Engineer focused on backend optimization and AI-driven automation. I build scalable systems and intelligent applications.";
 
     useEffect(() => {
         let i = 0;
