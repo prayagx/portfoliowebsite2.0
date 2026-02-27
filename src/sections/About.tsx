@@ -3,9 +3,15 @@ import { FadeIn } from '../components/FadeIn';
 
 const experiences = [
     {
+        role: "Independent AI Developer",
+        company: "Self-Directed / Upskilling",
+        period: "Nov 2025 - Present",
+        description: "Focusing on advanced AI project development, exploring emerging Foundation Models, and concurrently studying the Japanese language to broaden international opportunities."
+    },
+    {
         role: "Database Administrator & System Engineer",
         company: "Tata Consultancy Services (TCS)",
-        period: "May 2024 - Present",
+        period: "May 2024 - Oct 2025",
         description: "Managed Oracle 19c production databases with 99.9% uptime. Used AI tools (ChatGPT, Claude) for query tuning, log analysis, and troubleshooting. Optimized Exadata Cloud@Customer scripts and automated tasks with Shell and Ansible."
     },
     {
