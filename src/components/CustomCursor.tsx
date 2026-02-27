@@ -41,11 +41,10 @@ export const CustomCursor = () => {
 
     return (
         <motion.div
-            className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[9999] mix-blend-difference bg-white"
+            className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center"
             animate={{
-                x: mousePosition.x - 16,
-                y: mousePosition.y - 16,
-                scale: isHovering ? 2.5 : 1,
+                x: mousePosition.x - (isHovering ? 24 : 12), // Adjust for center based on size
+                y: mousePosition.y - (isHovering ? 24 : 12),
             }}
             transition={{
                 type: 'spring',
@@ -53,6 +52,20 @@ export const CustomCursor = () => {
                 damping: 15,
                 mass: 0.1
             }}
-        />
+        >
+            <motion.div
+                className="rounded-full bg-primary-500 shadow-[0_0_15px_rgba(20,184,166,0.8)]"
+                animate={{
+                    width: isHovering ? 48 : 24,
+                    height: isHovering ? 48 : 24,
+                    opacity: isHovering ? 0.5 : 0.9,
+                }}
+                transition={{
+                    type: 'spring',
+                    stiffness: 300,
+                    damping: 20,
+                }}
+            />
+        </motion.div>
     );
 };
