@@ -2,80 +2,68 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export const CustomCursor = () => {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
     const [isHovering, setIsHovering] = useState(false);
 
     useEffect(() => {
-        const updateMousePosition = (e: MouseEvent) => {
+        const handleMouseMove = (e: MouseEvent) => {
             setMousePosition({ x: e.clientX, y: e.clientY });
-        };
 
-        const handleMouseOver = (e: MouseEvent) => {
+            // Perfect nested child detection on every tick
             const target = e.target as HTMLElement;
-            if (
-                target.tagName.toLowerCase() === 'button' ||
-                target.tagName.toLowerCase() === 'a' ||
-                target.closest('button') ||
-                target.closest('a')
-            ) {
-                setIsHovering(true);
-            } else {
-                setIsHovering(false);
+            if (target && typeof target.closest === 'function') {
+                const isHoverable = target.closest('button') || target.closest('a') || target.closest('[role="button"]') || target.closest('.magnetic-btn');
+                setIsHovering(!!isHoverable);
             }
         };
 
-        window.addEventListener('mousemove', updateMousePosition);
-        window.addEventListener('mouseover', handleMouseOver);
+        window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
         return () => {
-            window.removeEventListener('mousemove', updateMousePosition);
-            window.removeEventListener('mouseover', handleMouseOver);
+            window.removeEventListener('mousemove', handleMouseMove);
         };
     }, []);
 
-    // Disable on mobile/touch screens
     if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
         return null;
     }
 
     return (
         <motion.div
-            className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center"
+            className="fixed top-0 left-0 z-[99999] pointer-events-none flex items-center justify-center"
             animate={{
                 x: mousePosition.x - (isHovering ? 20 : 6),
                 y: mousePosition.y - (isHovering ? 20 : 10),
             }}
             transition={{
-                type: 'spring',
-                stiffness: 150, // Slightly snappy follow
-                damping: 15,
-                mass: 0.1
+                type: 'tween',
+                ease: 'backOut',
+                duration: 0.1
             }}
         >
             <motion.div
-                className={`flex items-center justify-between shadow-[0_0_20px_rgba(20,184,166,0.9)] ${!isHovering ? 'animate-cursor-blink' : ''}`}
+                className={`flex items-center justify-between shadow-[0_0_20px_rgba(20,184,166,0.5)] ${!isHovering ? 'animate-cursor-blink' : ''}`}
+                initial={false}
                 animate={{
-                    width: isHovering ? 40 : 12,
-                    height: isHovering ? 40 : 20,
-                    backgroundColor: isHovering ? 'transparent' : '#14b8a6', // primary-500
-                    borderRadius: isHovering ? '4px' : '2px',
+                    width: isHovering ? 46 : 12,
+                    height: isHovering ? 46 : 20,
                 }}
-                transition={{
-                    type: 'spring',
-                    stiffness: 300,
-                    damping: 20,
-                }}
+                transition={{ type: 'spring', stiffness: 500, damping: 28 }}
             >
-                {/* Left Bracket Line */}
+                {/* Left Side (Expands to full block when idle, shrinks to bracket on hover) */}
                 <motion.div
-                    className="h-full bg-primary-500 rounded-sm shadow-[0_0_15px_rgba(20,184,166,1)]"
-                    animate={{ width: isHovering ? 4 : 0, opacity: isHovering ? 1 : 0 }}
+                    className="bg-primary-500 h-full rounded-[2px]"
+                    initial={false}
+                    animate={{ width: isHovering ? 3 : 12 }}
+                    transition={{ type: 'spring', stiffness: 500, damping: 28 }}
                 />
 
-                {/* Right Bracket Line */}
+                {/* Right Side (Shrinks to 0 width when idle, expands to bracket on hover) */}
                 <motion.div
-                    className="h-full bg-primary-500 rounded-sm shadow-[0_0_15px_rgba(20,184,166,1)]"
-                    animate={{ width: isHovering ? 4 : 0, opacity: isHovering ? 1 : 0 }}
+                    className="bg-primary-500 h-full rounded-[2px]"
+                    initial={false}
+                    animate={{ width: isHovering ? 3 : 0 }}
+                    transition={{ type: 'spring', stiffness: 500, damping: 28 }}
                 />
             </motion.div>
         </motion.div>
