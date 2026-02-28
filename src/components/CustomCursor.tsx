@@ -12,7 +12,6 @@ export const CustomCursor = () => {
 
         const handleMouseOver = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
-            // Check if hovered element is a link, button, or has a specific class
             if (
                 target.tagName.toLowerCase() === 'button' ||
                 target.tagName.toLowerCase() === 'a' ||
@@ -43,25 +42,23 @@ export const CustomCursor = () => {
         <motion.div
             className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center"
             animate={{
-                x: mousePosition.x - (isHovering ? 24 : 16),
-                y: mousePosition.y - (isHovering ? 24 : 16),
+                x: mousePosition.x - (isHovering ? 20 : 6),
+                y: mousePosition.y - (isHovering ? 20 : 10),
             }}
             transition={{
                 type: 'spring',
-                stiffness: 150,
+                stiffness: 150, // Slightly snappy follow
                 damping: 15,
                 mass: 0.1
             }}
         >
             <motion.div
-                className={`rounded-full shadow-[0_0_20px_rgba(20,184,166,0.9)] ${isHovering
-                        ? 'bg-transparent border-2 border-primary-500 shadow-[0_0_25px_rgba(20,184,166,1)] flex items-center justify-center'
-                        : 'bg-primary-500'
-                    }`}
+                className={`flex items-center justify-between shadow-[0_0_20px_rgba(20,184,166,0.9)] ${!isHovering ? 'animate-cursor-blink' : ''}`}
                 animate={{
-                    width: isHovering ? 48 : 32,
-                    height: isHovering ? 48 : 32,
-                    opacity: 1, // Never transparent
+                    width: isHovering ? 40 : 12,
+                    height: isHovering ? 40 : 20,
+                    backgroundColor: isHovering ? 'transparent' : '#14b8a6', // primary-500
+                    borderRadius: isHovering ? '4px' : '2px',
                 }}
                 transition={{
                     type: 'spring',
@@ -69,14 +66,17 @@ export const CustomCursor = () => {
                     damping: 20,
                 }}
             >
-                {/* Inner dot when hovering */}
-                {isHovering && (
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="w-2 h-2 rounded-full bg-primary-500"
-                    />
-                )}
+                {/* Left Bracket Line */}
+                <motion.div
+                    className="h-full bg-primary-500 rounded-sm shadow-[0_0_15px_rgba(20,184,166,1)]"
+                    animate={{ width: isHovering ? 4 : 0, opacity: isHovering ? 1 : 0 }}
+                />
+
+                {/* Right Bracket Line */}
+                <motion.div
+                    className="h-full bg-primary-500 rounded-sm shadow-[0_0_15px_rgba(20,184,166,1)]"
+                    animate={{ width: isHovering ? 4 : 0, opacity: isHovering ? 1 : 0 }}
+                />
             </motion.div>
         </motion.div>
     );
