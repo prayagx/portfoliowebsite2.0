@@ -6,27 +6,7 @@ import { MagneticButton } from '../components/MagneticButton';
 const TYPE_SPEED = 50;
 
 export default function Hero() {
-    const [typedText, setTypedText] = useState('');
     const fullText = "Engineer specializing in backend optimization and AI-driven automation. I architect scalable systems and build intelligent applications.";
-
-    useEffect(() => {
-        let i = 0;
-        setTypedText('');
-
-        const timeout = setTimeout(() => {
-            const typingInterval = setInterval(() => {
-                if (i < fullText.length) {
-                    setTypedText(prev => prev + fullText.charAt(i));
-                    i++;
-                } else {
-                    clearInterval(typingInterval);
-                }
-            }, TYPE_SPEED);
-            return () => clearInterval(typingInterval);
-        }, 800);
-
-        return () => clearTimeout(timeout);
-    }, []);
 
     return (
         <section id="home" className="min-h-screen flex items-center justify-center pt-24 pb-12 px-6 relative overflow-hidden">
@@ -46,11 +26,11 @@ export default function Hero() {
                 </FadeIn>
 
                 <FadeIn delay={0.3}>
-                    <div className="h-28 md:h-16 mb-12 max-w-2xl mx-auto">
+                    <div className="h-28 md:h-16 mb-12 max-w-2xl mx-auto flex items-start justify-center text-left md:text-center">
                         <p className="text-lg md:text-xl text-text-secondary font-mono leading-relaxed">
                             <span className="text-accent-500 mr-2">{'>'}</span>
-                            {typedText}
-                            <span className="inline-block w-2 h-5 ml-1 bg-primary-500 animate-pulse-slow"></span>
+                            {fullText}
+                            <span className="inline-block w-2 h-5 ml-1 bg-primary-500 animate-pulse-slow align-middle"></span>
                         </p>
                     </div>
                 </FadeIn>
