@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react';
 import { Terminal, ArrowRight, Download } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';
 import { MagneticButton } from '../components/MagneticButton';
 
-const TYPE_SPEED = 50;
 
 export default function Hero() {
     const fullText = "Engineer specializing in backend optimization and AI-driven automation. I architect scalable systems and build intelligent applications.";
