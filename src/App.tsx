@@ -4,6 +4,7 @@ import Hero from './sections/Hero';
 import About from './sections/About';
 import Dashboard from './sections/Dashboard';
 import Projects from './sections/Projects';
+import AITestCases from './sections/AITestCases';
 import Contact from './sections/Contact';
 import { MeshBackground } from './components/MeshBackground';
 import { CustomCursor } from './components/CustomCursor';
@@ -22,6 +23,7 @@ function App() {
           <Dashboard />
           <About />
           <Projects />
+          <AITestCases />
           <Contact />
         </main>
 

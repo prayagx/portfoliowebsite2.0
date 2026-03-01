@@ -5,6 +5,7 @@ const navItems = [
     { name: 'Dashboard', href: '#dashboard' },
     { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
+    { name: 'AI Test Cases', href: '#ai-testcases' },
 ];
 
 export default function Header() {
