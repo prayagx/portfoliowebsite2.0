@@ -3,14 +3,14 @@ import { FadeIn } from '../components/FadeIn';
 
 const aiCases = [
     {
-        title: "Neon Lies: Retro Web Game",
-        category: "Interactive Simulation",
+        title: "Neon Lies: Retro Murder Mystery",
+        category: "Interactive Storytelling",
         icon: <Gamepad2 className="text-secondary-500 mb-6" size={32} />,
-        description: "A fully functional retro-style web game developed entirely through advanced prompt engineering. Built from scratch by decomposing game mechanics (physics loop, collision detection, state management) into manageable AI prompts.",
+        description: "A fully functional retro-style murder mystery web game developed entirely through advanced prompt engineering. Built from scratch by decomposing narrative logic, dialogue trees, and state management into manageable AI prompts.",
         architecture: "Vanilla JS, HTML Canvas, AI (Claude/ChatGPT)",
-        aiHighlight: "Demonstrates the ability to handle complex logic generation, constraint management, and iterative debugging when directing LLMs to build functional software architecture.",
+        aiHighlight: "Demonstrates the ability to handle complex narrative logic generation, constraint management, and iterative debugging when directing LLMs to build functional interactive storytelling.",
         link: "https://neonlies.netlify.app/",
-        tags: ["Prompt Engineering", "Game Loop", "Vanilla JS", "Iterative Refinement"]
+        tags: ["Prompt Engineering", "Dialogue Trees", "Vanilla JS", "Iterative Refinement"]
     },
     {
         title: "JLPT N5 Kanji Workbook",
