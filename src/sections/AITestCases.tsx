@@ -40,28 +40,28 @@ export default function AITestCases() {
                     </div>
                 </FadeIn>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
                     {aiCases.map((testCase, idx) => (
-                        <FadeIn key={idx} delay={0.1 * idx}>
-                            <div className="glass-card flex flex-col group relative overflow-hidden hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-secondary-500/10 hover:border-secondary-500/40 transition-all duration-300 h-full">
+                        <FadeIn key={idx} delay={0.1 * idx} className={idx === 0 ? "lg:col-span-2" : "lg:col-span-1"}>
+                            <div className={`glass-card flex flex-col group relative overflow-hidden transition-all duration-300 h-full ${idx === 0 ? 'bg-secondary-500/5 border-secondary-500/30' : ''} hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-secondary-500/20 hover:border-secondary-500/50`}>
 
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-secondary-500/5 rounded-bl-[100px] -z-10 group-hover:bg-secondary-500/10 group-hover:scale-110 transition-all duration-500"></div>
+                                <div className="absolute top-0 right-0 w-48 h-48 bg-secondary-500/10 rounded-bl-[150px] -z-10 group-hover:bg-secondary-500/20 group-hover:scale-110 transition-all duration-500 blur-2xl"></div>
 
                                 <div className="p-8 flex flex-col h-full z-10">
-                                    <div className="group-hover:drop-shadow-[0_0_8px_rgba(244,63,94,0.5)] transition-all duration-300">
+                                    <div className="group-hover:drop-shadow-[0_0_12px_rgba(236,72,153,0.6)] transition-all duration-300">
                                         {testCase.icon}
                                     </div>
 
-                                    <span className="text-xs font-mono text-accent-500 uppercase tracking-wider mb-2">{testCase.category}</span>
-                                    <h3 className="text-2xl font-bold mb-4 text-text-primary group-hover:text-secondary-500 transition-colors">{testCase.title}</h3>
+                                    <span className="text-xs font-mono text-secondary-500 uppercase tracking-wider mb-2">{testCase.category}</span>
+                                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-text-primary group-hover:text-secondary-500 transition-colors">{testCase.title}</h3>
 
-                                    <p className="text-text-secondary mb-6 leading-relaxed flex-grow">
+                                    <p className="text-text-secondary mb-6 leading-relaxed flex-grow text-lg">
                                         {testCase.description}
                                     </p>
 
-                                    <div className="bg-surfaceBorder/30 rounded-xl p-4 mb-6 border border-surfaceBorder/50 group-hover:border-secondary-500/20 transition-colors">
-                                        <p className="text-sm text-text-primary mb-2">
+                                    <div className="bg-surfaceBorder/20 rounded-xl p-5 mb-6 border border-surfaceBorder/40 group-hover:border-secondary-500/30 transition-colors">
+                                        <p className="text-sm text-text-primary mb-3">
                                             <span className="font-semibold text-secondary-500">Tech Stack:</span> {testCase.architecture}
                                         </p>
                                         <p className="text-sm text-text-secondary">
@@ -71,7 +71,7 @@ export default function AITestCases() {
 
                                     <div className="flex flex-wrap gap-2 mb-8">
                                         {testCase.tags.map((tag, tIdx) => (
-                                            <span key={tIdx} className="px-3 py-1 bg-surfaceBorder/50 text-text-tertiary rounded-md text-xs font-medium border border-surfaceBorder group-hover:border-secondary-500/20 group-hover:text-text-secondary transition-colors">
+                                            <span key={tIdx} className="px-3 py-1 bg-surfaceBorder/40 text-text-secondary rounded-md text-xs font-medium border border-surfaceBorder group-hover:border-secondary-500/30 group-hover:text-text-primary transition-colors">
                                                 {tag}
                                             </span>
                                         ))}

@@ -3,14 +3,14 @@ import { FadeIn } from '../components/FadeIn';
 
 const skillCategories = [
     {
-        title: "AI & Automation",
+        title: "AI Tools & Automation",
         icon: <BrainCircuit className="text-primary-500 mb-4" size={32} />,
-        skills: ["Claude API", "ChatGPT", "Gemini", "Hugging Face", "Prompt Engineering", "AI-Assisted Dev (Cursor)"]
+        skills: ["ChatGPT", "Gemini", "Claude", "Anti Gravity", "Cursor (AI-Assisted Dev)"]
     },
     {
-        title: "Data Engine",
+        title: "AI Stack & Data",
         icon: <Database className="text-accent-500 mb-4" size={32} />,
-        skills: ["Oracle DB 19c", "SQL", "PL/SQL", "Supervised Learning", "Data Wrangling", "Performance Tuning"]
+        skills: ["LangChain", "Vector Databases", "Prompt Engineering", "Oracle DB 19c", "SQL/PLSQL"]
     },
     {
         title: "Core Infrastructure",

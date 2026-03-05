@@ -50,27 +50,27 @@ export default function Projects() {
                     </div>
                 </FadeIn>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
 
                     {projects.map((project, idx) => (
-                        <FadeIn key={idx} delay={0.1 * idx}>
+                        <FadeIn key={idx} delay={0.1 * idx} className={idx === 1 ? "lg:col-span-2" : "lg:col-span-2"}>
                             <div className="glass-card flex flex-col group relative overflow-hidden hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-primary-500/10 hover:border-primary-500/40 transition-all duration-300 h-full">
 
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-primary-500/5 rounded-bl-[100px] -z-10 group-hover:bg-primary-500/10 group-hover:scale-110 transition-all duration-500"></div>
+                                <div className="absolute top-0 right-0 w-40 h-40 bg-primary-500/5 rounded-bl-[120px] -z-10 group-hover:bg-primary-500/10 group-hover:scale-110 transition-all duration-500 blur-xl"></div>
 
                                 <div className="p-8 flex flex-col h-full z-10">
-                                    <div className="group-hover:drop-shadow-[0_0_8px_rgba(20,184,166,0.5)] transition-all duration-300">
+                                    <div className="group-hover:drop-shadow-[0_0_10px_rgba(99,102,241,0.5)] transition-all duration-300">
                                         {project.icon}
                                     </div>
 
                                     <span className="text-xs font-mono text-accent-500 uppercase tracking-wider mb-2">{project.category}</span>
                                     <h3 className="text-2xl font-bold mb-4 text-text-primary group-hover:text-primary-500 transition-colors">{project.title}</h3>
 
-                                    <p className="text-text-secondary mb-6 leading-relaxed flex-grow">
+                                    <p className="text-text-secondary mb-6 leading-relaxed flex-grow text-[15px]">
                                         {project.description}
                                     </p>
 
-                                    <div className="bg-surfaceBorder/30 rounded-xl p-4 mb-6 border border-surfaceBorder/50 group-hover:border-primary-500/20 transition-colors">
+                                    <div className="bg-surfaceBorder/20 rounded-xl p-4 mb-6 border border-surfaceBorder/40 group-hover:border-primary-500/20 transition-colors">
                                         <p className="text-sm text-text-primary mb-2">
                                             <span className="font-semibold text-primary-500">Tech Stack:</span> {project.architecture}
                                         </p>
@@ -79,9 +79,9 @@ export default function Projects() {
                                         </p>
                                     </div>
 
-                                    <div className="flex flex-wrap gap-2 mb-8">
+                                    <div className="flex flex-wrap gap-2 mb-8 mt-auto">
                                         {project.tags.map((tag, tIdx) => (
-                                            <span key={tIdx} className="px-3 py-1 bg-surfaceBorder/50 text-text-tertiary rounded-md text-xs font-medium border border-surfaceBorder group-hover:border-primary-500/20 group-hover:text-text-secondary transition-colors">
+                                            <span key={tIdx} className="px-3 py-1 bg-surfaceBorder/40 text-text-secondary rounded-md text-xs font-medium border border-surfaceBorder group-hover:border-primary-500/30 group-hover:text-text-primary transition-colors">
                                                 {tag}
                                             </span>
                                         ))}
@@ -93,7 +93,7 @@ export default function Projects() {
                                         rel="noreferrer"
                                         className="mt-auto inline-flex items-center gap-2 text-sm font-bold text-text-primary group-hover:text-primary-500 transition-colors"
                                     >
-                                        View live project / Code
+                                        View Code / Demo
                                         <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                     </a>
 
