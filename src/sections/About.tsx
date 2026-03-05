@@ -47,30 +47,33 @@ export default function About() {
 
                     <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-surfaceBorder before:to-transparent">
 
-                        {experiences.map((exp, index) => (
-                            <FadeIn delay={0.2 + (index * 0.1)} key={index} direction={index % 2 === 0 ? "right" : "left"}>
-                                <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active py-2">
+                        {experiences.map((exp, index) => {
+                            const isEven = index % 2 === 0;
+                            return (
+                                <FadeIn delay={0.2 + (index * 0.1)} key={index} direction={isEven ? "right" : "left"}>
+                                    <div className={`relative flex items-center justify-between md:justify-normal group is-active py-2 ${!isEven ? 'md:flex-row-reverse' : ''}`}>
 
-                                    {/* Timeline dot */}
-                                    <div className="flex items-center justify-center w-10 h-10 rounded-full border border-surfaceBorder bg-surface text-primary-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 transition-all duration-300 group-hover:bg-primary-500/10 group-hover:border-primary-500/50 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.3)]">
-                                        <Calendar size={16} />
-                                    </div>
-
-                                    {/* Content Card */}
-                                    <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 border-surfaceBorder group-hover:border-primary-500/40 group-hover:-translate-y-1 group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] group-hover:shadow-primary-500/10 transition-all duration-300">
-                                        <div className="flex flex-col mb-3">
-                                            <span className="text-accent-500 text-sm font-mono mb-1">{exp.period}</span>
-                                            <h4 className="text-xl font-bold text-text-primary group-hover:text-primary-500 transition-colors">{exp.role}</h4>
-                                            <span className="text-text-secondary font-medium">{exp.company}</span>
+                                        {/* Timeline dot */}
+                                        <div className={`flex items-center justify-center w-10 h-10 rounded-full border border-surfaceBorder bg-surface text-primary-500 shadow shrink-0 md:order-1 z-10 transition-all duration-300 group-hover:bg-primary-500/10 group-hover:border-primary-500/50 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.3)] ${isEven ? 'md:translate-x-1/2' : 'md:-translate-x-1/2'}`}>
+                                            <Calendar size={16} />
                                         </div>
-                                        <p className="text-text-tertiary leading-relaxed">
-                                            {exp.description}
-                                        </p>
-                                    </div>
 
-                                </div>
-                            </FadeIn>
-                        ))}
+                                        {/* Content Card */}
+                                        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 border-surfaceBorder group-hover:border-primary-500/40 group-hover:-translate-y-1 group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] group-hover:shadow-primary-500/10 transition-all duration-300">
+                                            <div className="flex flex-col mb-3">
+                                                <span className="text-accent-500 text-sm font-mono mb-1">{exp.period}</span>
+                                                <h4 className="text-xl font-bold text-text-primary group-hover:text-primary-500 transition-colors">{exp.role}</h4>
+                                                <span className="text-text-secondary font-medium">{exp.company}</span>
+                                            </div>
+                                            <p className="text-text-tertiary leading-relaxed">
+                                                {exp.description}
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </FadeIn>
+                            )
+                        })}
 
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 import { FadeIn } from '../components/FadeIn';
-import { AIAgentLog } from '../components/bento/AIAgentLog';
+import { DynamicTechList } from '../components/bento/DynamicTechList';
 import { TechOrbit } from '../components/bento/TechOrbit';
 import { DataMetrics } from '../components/bento/DataMetrics';
 export default function Dashboard() {
@@ -16,10 +16,10 @@ export default function Dashboard() {
                 </FadeIn>
 
                 <div className="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-6 md:h-[520px]">
-                    {/* Top Left: Terminal/Agent (Span 8 cols) */}
+                    {/* Top Left: Tech List (Span 8 cols) */}
                     <div className="md:col-span-8 md:row-span-1 h-72 md:h-auto">
                         <FadeIn delay={0.1} className="h-full">
-                            <AIAgentLog />
+                            <DynamicTechList />
                         </FadeIn>
                     </div>
 

@@ -17,7 +17,7 @@ export function DataMetrics() {
                 </div>
 
                 {/* Stat Blocks */}
-                <div className="flex flex-col gap-3">
+                <div className="grid grid-cols-2 gap-3 w-1/2">
                     <div className="bg-surface/50 border border-surfaceBorder rounded-lg p-2.5 text-center group-hover:border-accent-500/30 transition-colors">
                         <span className="block text-accent-500 font-bold text-lg">500M+</span>
                         <span className="text-[10px] text-text-secondary uppercase tracking-widest">Rows</span>
@@ -25,6 +25,14 @@ export function DataMetrics() {
                     <div className="bg-surface/50 border border-surfaceBorder rounded-lg p-2.5 text-center group-hover:border-primary-500/30 transition-colors">
                         <span className="block text-primary-500 font-bold text-lg">-40%</span>
                         <span className="text-[10px] text-text-secondary uppercase tracking-widest">Latency</span>
+                    </div>
+                    <div className="bg-surface/50 border border-surfaceBorder rounded-lg p-2.5 text-center group-hover:border-secondary-500/30 transition-colors">
+                        <span className="block text-secondary-500 font-bold text-lg">12ms</span>
+                        <span className="text-[10px] text-text-secondary uppercase tracking-widest">Query</span>
+                    </div>
+                    <div className="bg-surface/50 border border-surfaceBorder rounded-lg p-2.5 text-center group-hover:border-text-primary/30 transition-colors">
+                        <span className="block text-text-primary font-bold text-lg">Zero</span>
+                        <span className="text-[10px] text-text-secondary uppercase tracking-widest">Breaches</span>
                     </div>
                 </div>
 
