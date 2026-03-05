@@ -17,6 +17,15 @@ export const MeshBackground = () => {
 
     return (
         <div className="fixed inset-0 z-0 overflow-hidden bg-background pointer-events-none">
+            {/* Grid Pattern overlay */}
+            <div
+                className="absolute inset-0 z-0 opacity-[0.5]"
+                style={{
+                    backgroundImage: `radial-gradient(var(--color-surfaceBorder) 1px, transparent 1px)`,
+                    backgroundSize: '32px 32px'
+                }}
+            />
+
             {/* Subtle Noise Texture overlay */}
             <div
                 className="absolute inset-0 z-50 opacity-[0.03] mix-blend-overlay"
@@ -26,18 +35,18 @@ export const MeshBackground = () => {
             />
 
             {/* Lush Mesh Fluid Gradients */}
-            {/* Top Left Teal Blob */}
-            <div className="absolute -top-10 -left-10 w-96 h-96 bg-primary-500/30 rounded-full blur-[100px] mix-blend-screen animate-blob" />
-            {/* Top Right Royal Blue Blob */}
-            <div className="absolute top-0 -right-10 w-96 h-96 bg-accent-500/20 rounded-full blur-[100px] mix-blend-screen animate-blob animation-delay-2000" />
-            {/* Bottom Indigo Blob */}
-            <div className="absolute -bottom-20 left-20 w-[30rem] h-[30rem] bg-indigo-500/20 rounded-full blur-[120px] mix-blend-screen animate-blob animation-delay-4000" />
+            {/* Top Left Blob */}
+            <div className="absolute -top-10 -left-10 w-96 h-96 bg-primary-500/15 rounded-full blur-[100px] mix-blend-multiply animate-blob" />
+            {/* Top Right Blob */}
+            <div className="absolute top-0 -right-10 w-96 h-96 bg-accent-500/15 rounded-full blur-[100px] mix-blend-multiply animate-blob animation-delay-2000" />
+            {/* Bottom Blob */}
+            <div className="absolute -bottom-20 left-20 w-[30rem] h-[30rem] bg-secondary-500/10 rounded-full blur-[120px] mix-blend-multiply animate-blob animation-delay-4000" />
 
             {/* Dynamic Mouse Glow Overlay */}
             <div
-                className="absolute inset-0 z-10 transition-opacity duration-300 mix-blend-screen"
+                className="absolute inset-0 z-10 transition-opacity duration-300 mix-blend-color-burn"
                 style={{
-                    background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(20, 184, 166, 0.08), transparent 80%)`,
+                    background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(79, 70, 229, 0.05), transparent 80%)`,
                 }}
             />
         </div>
