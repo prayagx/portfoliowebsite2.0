@@ -2,7 +2,6 @@ import { FadeIn } from '../components/FadeIn';
 import { AIAgentLog } from '../components/bento/AIAgentLog';
 import { TechOrbit } from '../components/bento/TechOrbit';
 import { DataMetrics } from '../components/bento/DataMetrics';
-import { AIInferenceNode } from '../components/bento/AIInferenceNode';
 export default function Dashboard() {
     return (
         <section id="dashboard" className="py-24 px-6 relative z-10">
@@ -31,17 +30,10 @@ export default function Dashboard() {
                         </FadeIn>
                     </div>
 
-                    {/* Bottom Left: Data Metrics */}
-                    <div className="md:col-span-4 md:row-span-1 h-64 md:h-auto">
+                    {/* Bottom Right: Data Metrics (Span 8 cols) */}
+                    <div className="md:col-span-8 md:row-span-1 h-64 md:h-auto">
                         <FadeIn delay={0.3} className="h-full">
                             <DataMetrics />
-                        </FadeIn>
-                    </div>
-
-                    {/* Bottom Middle: AI Node */}
-                    <div className="md:col-span-4 md:row-span-1 h-64 md:h-auto">
-                        <FadeIn delay={0.4} className="h-full">
-                            <AIInferenceNode />
                         </FadeIn>
                     </div>
                 </div>

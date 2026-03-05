@@ -6,6 +6,7 @@ const aiCases = [
         title: "Neon Lies: Retro Murder Mystery",
         category: "Interactive Storytelling",
         icon: <Gamepad2 className="text-secondary-500 mb-6" size={32} />,
+        image: "https://placehold.co/600x400/292524/f5f5f4?text=Neon+Lies+Game+Screenshot",
         description: "A fully functional retro-style murder mystery web game developed entirely through advanced prompt engineering. Built from scratch by decomposing narrative logic, dialogue trees, and state management into manageable AI prompts.",
         architecture: "Vanilla JS, HTML Canvas, AI (Claude/ChatGPT)",
         aiHighlight: "Demonstrates the ability to handle complex narrative logic generation, constraint management, and iterative debugging when directing LLMs to build functional interactive storytelling.",
@@ -16,6 +17,7 @@ const aiCases = [
         title: "JLPT N5 Kanji Workbook",
         category: "Generative Content & Typesetting",
         icon: <BookOpen className="text-accent-500 mb-6" size={32} />,
+        image: "https://placehold.co/600x400/292524/f5f5f4?text=Amazon+Book+Listing",
         description: "A complete Japanese language learning workbook generated and professionally formatted using AI. Handled the end-to-end process from content generation to strict formatting constraints.",
         architecture: "LaTeX, AI (Claude/ChatGPT)",
         aiHighlight: "Proves strict syntax control over LLMs to output compile-ready LaTeX for complex formatting, including Furigana and structured layouts, avoiding hallucinated syntax.",
@@ -48,8 +50,19 @@ export default function AITestCases() {
 
                                 <div className="absolute top-0 right-0 w-48 h-48 bg-secondary-500/10 rounded-bl-[150px] -z-10 group-hover:bg-secondary-500/20 group-hover:scale-110 transition-all duration-500 blur-2xl"></div>
 
+                                {/* Media Placeholder */}
+                                <div className="w-full h-48 sm:h-64 overflow-hidden border-b border-surfaceBorder/50 relative">
+                                    <div className="absolute inset-0 bg-surface/80 group-hover:bg-transparent transition-colors duration-500 z-10 mix-blend-color"></div>
+                                    <img
+                                        src={testCase.image}
+                                        alt={testCase.title}
+                                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent z-10 pointer-events-none"></div>
+                                </div>
+
                                 <div className="p-8 flex flex-col h-full z-10">
-                                    <div className="group-hover:drop-shadow-[0_0_12px_rgba(236,72,153,0.6)] transition-all duration-300">
+                                    <div className="group-hover:drop-shadow-[0_0_12px_rgba(236,72,153,0.6)] transition-all duration-300 -mt-12 mb-4 bg-surface w-fit p-3 rounded-xl border border-surfaceBorder/50 relative z-20">
                                         {testCase.icon}
                                     </div>
 

@@ -45,7 +45,7 @@ export default function About() {
                         </h3>
                     </FadeIn>
 
-                    <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-surfaceBorder before:to-transparent">
+                    <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-surfaceBorder before:to-transparent">
 
                         {experiences.map((exp, index) => (
                             <FadeIn delay={0.2 + (index * 0.1)} key={index} direction={index % 2 === 0 ? "right" : "left"}>
