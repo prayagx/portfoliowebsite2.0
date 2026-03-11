@@ -1,4 +1,4 @@
-import { ArrowUpRight, BookOpen, Gamepad2 } from 'lucide-react';
+import { ArrowUpRight, BookOpen, Gamepad2, AppWindow, Crosshair } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';
 
 const aiCases = [
@@ -23,6 +23,28 @@ const aiCases = [
         aiHighlight: "Proves strict syntax control over LLMs to output compile-ready LaTeX for complex formatting, including Furigana and structured layouts, avoiding hallucinated syntax.",
         link: "https://www.amazon.com/dp/B0GP771NRX",
         tags: ["Prompt Constraints", "LaTeX", "KDP Publishing", "Content Generation"]
+    },
+    {
+        title: "The Browser Project",
+        category: "Desktop Application",
+        icon: <AppWindow className="text-secondary-500 mb-6" size={32} />,
+        image: "/browser_project.png",
+        description: "A modern desktop web browser built from the ground up using AI-driven development. Features a custom sidebar UI, workspace system, command palette, and auto-archiving temporary tabs, mimicking the functionality of next-generation browsers.",
+        architecture: "Tauri, React, TypeScript, Tailwind CSS, Rust",
+        aiHighlight: "Showcases the ability to architect and implement complex multi-language desktop applications, orchestrating standard web technologies alongside system-level bindings and custom UI components entirely through AI.",
+        link: "https://github.com/prayagx/thebrowserproject",
+        tags: ["Tauri", "React", "Desktop App", "System Architecture"]
+    },
+    {
+        title: "Not Doom Guy",
+        category: "Web-Based Gaming",
+        icon: <Crosshair className="text-accent-500 mb-6" size={32} />,
+        image: "/doom_clone.png",
+        description: "A retro-style first-person shooter inspired by Doom, engineered fully through AI prompting and iterative refinement. Features classic raycasting mechanics, 3D environment rendering, and engaging gameplay elements running directly in the browser.",
+        architecture: "Vanilla JS, HTML Canvas, AI (Claude/ChatGPT)",
+        aiHighlight: "Demonstrates advanced prompting capabilities for game logic implementation, focusing on mathematical raycasting, performant rendering loops, and state management without relying on external game engines.",
+        link: "https://notdoomguy.netlify.app/",
+        tags: ["Game Dev", "Raycasting", "Vanilla JS", "Performance Optimization"]
     }
 ];
 
@@ -45,8 +67,8 @@ export default function AITestCases() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
                     {aiCases.map((testCase, idx) => (
-                        <FadeIn key={idx} delay={0.1 * idx} className={idx === 0 ? "lg:col-span-2" : "lg:col-span-1"}>
-                            <div className={`glass-card flex flex-col group relative overflow-hidden transition-all duration-300 h-full ${idx === 0 ? 'bg-secondary-500/5 border-secondary-500/30' : ''} hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-secondary-500/20 hover:border-secondary-500/50`}>
+                        <FadeIn key={idx} delay={0.1 * idx} className={idx === 0 || idx === 3 ? "lg:col-span-2" : "lg:col-span-1"}>
+                            <div className={`glass-card flex flex-col group relative overflow-hidden transition-all duration-300 h-full ${idx === 0 || idx === 3 ? 'bg-secondary-500/5 border-secondary-500/30' : ''} hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-secondary-500/20 hover:border-secondary-500/50`}>
 
                                 <div className="absolute top-0 right-0 w-48 h-48 bg-secondary-500/10 rounded-bl-[150px] -z-10 group-hover:bg-secondary-500/20 group-hover:scale-110 transition-all duration-500 blur-2xl"></div>
 
